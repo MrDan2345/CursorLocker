@@ -1,0 +1,114 @@
+object Form1: TForm1
+  Left = 773
+  Height = 103
+  Top = 445
+  Width = 364
+  Caption = 'Cursor locker'
+  ClientHeight = 103
+  ClientWidth = 364
+  OnClose = FormClose
+  OnCreate = FormCreate
+  LCLVersion = '1.8.0.6'
+  object ComboBox1: TComboBox
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Edit2
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Button1
+    Left = 8
+    Height = 23
+    Top = 70
+    Width = 201
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 8
+    ItemHeight = 15
+    Style = csDropDownList
+    TabOrder = 0
+  end
+  object Button1: TButton
+    AnchorSideTop.Control = Edit2
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 217
+    Height = 24
+    Top = 70
+    Width = 139
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 8
+    Caption = 'Refresh list'
+    OnClick = Button1Click
+    TabOrder = 1
+  end
+  object Label1: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    Left = 8
+    Height = 15
+    Top = 10
+    Width = 128
+    AutoSize = False
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 10
+    Caption = 'Lock toggle shortcut'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Label1
+    AnchorSideTop.Side = asrBottom
+    Left = 8
+    Height = 15
+    Top = 41
+    Width = 128
+    AutoSize = False
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 16
+    Caption = 'Active window shortcut'
+    ParentColor = False
+  end
+  object Edit1: TEdit
+    AnchorSideLeft.Control = Label1
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 144
+    Height = 23
+    Top = 8
+    Width = 212
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 8
+    OnKeyDown = Edit1KeyDown
+    ReadOnly = True
+    TabOrder = 2
+  end
+  object Edit2: TEdit
+    AnchorSideLeft.Control = Label2
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = Edit1
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 144
+    Height = 23
+    Top = 39
+    Width = 212
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 8
+    OnKeyDown = Edit2KeyDown
+    ReadOnly = True
+    TabOrder = 3
+  end
+  object Timer1: TTimer
+    Interval = 1
+    OnTimer = Timer1Timer
+    top = 32
+  end
+end

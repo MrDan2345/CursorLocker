@@ -141,7 +141,8 @@ begin
     Window := GetSelectedWindow;
     if Assigned(Window) and IsWindow(Window.Handle) then
     begin
-      if not IsIconic(Window.Handle) then
+      if not IsIconic(Window.Handle)
+      and (GetActiveWindow = Window.Handle) then
       begin
         Windows.GetClientRect(Window.Handle, r);
         p := r.TopLeft;

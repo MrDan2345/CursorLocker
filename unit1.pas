@@ -117,6 +117,7 @@ procedure TForm1.Timer1Timer(Sender: TObject);
   var Window: TWindowItem;
   var r: TRect;
   var p: TPoint;
+  var Status: String;
 begin
   if ActiveWindowShortcut.Key > 0 then
   begin
@@ -142,7 +143,7 @@ begin
     if Assigned(Window) and IsWindow(Window.Handle) then
     begin
       if not IsIconic(Window.Handle)
-      and (GetActiveWindow = Window.Handle) then
+      and (GetForegroundWindow = Window.Handle) then
       begin
         Windows.GetClientRect(Window.Handle, r);
         p := r.TopLeft;
@@ -153,24 +154,27 @@ begin
         begin
           ClipCursor(r);
         end;
+        Status := 'locked';
       end
       else
       begin
         ClipCursor(nil);
+        Status := 'window inactive';
       end;
     end
     else
     begin
       ClipCursor(nil);
       LockState := False;
+      Status := 'unlocked';
     end;
-    Caption := 'Cursor locker (locked)';
   end
   else
   begin
     ClipCursor(nil);
-    Caption := 'Cursor locker (unlocked)';
+    Status := 'unlocked';
   end;
+  Caption := 'Cursor locker (' + Status + ')';
 end;
 
 procedure TForm1.RefreshWidnows;
